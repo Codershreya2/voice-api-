@@ -6,9 +6,12 @@ app = FastAPI()
 API_KEY = "test123"
 
 class VoiceRequest(BaseModel):
-    language: str
-    audio_format: str
-    audio_base64: str
+   {
+  "language": "English",
+  "audio_format": "mp3",
+  "audio_base64": "dummy"
+}
+
 
 @app.post("/detect")
 def detect_voice(data: VoiceRequest, x_api_key: str = Header(None)):
@@ -27,4 +30,5 @@ def detect_voice(data: VoiceRequest, x_api_key: str = Header(None)):
         "confidence": 0.85,
         "explanation": "Voice characteristics indicate synthetic patterns"
     }
+
 
